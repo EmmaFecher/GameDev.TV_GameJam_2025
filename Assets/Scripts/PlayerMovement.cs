@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
+    public GameUI ui;
     public float moveSpeed = 5f;
     public float sprintMultiplier = 2f;
     public Rigidbody rb;
@@ -49,6 +50,16 @@ public class PlayerMovement : MonoBehaviour
             else if (context.canceled)
             {
                 fireInput = false;
+            }
+        }
+    }
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if(canControl)
+        {
+            if (context.canceled)
+            {
+                ui.PauseMenu();
             }
         }
     }

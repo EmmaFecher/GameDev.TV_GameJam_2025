@@ -20,7 +20,7 @@ public class ItemGrab : MonoBehaviour
                 {
                     if (GameManager.instance.currentMouseInventory < GameManager.instance.maxMouseInventory)
                     {
-                        Debug.Log("Add");
+                        // Debug.Log("Add");
                         GameManager.instance.currentMouseInventory++;
                         pm.fireInput = false;
                         this.gameObject.SetActive(false);
