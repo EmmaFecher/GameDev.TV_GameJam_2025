@@ -1,10 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //Stay across scenes
-    //keep inventory
-    //turn on/off movement here?
+    public int score = 0;//sell item -> add to this
+    public int shopInventory = 0;//add to this when click on base shop
+    public int maxMouseInventory = 5;
+    public int currentMouseInventory = 0;
+    public static GameManager instance;
+    void Awake()
+    {
+        if (instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+    }
+    
 }

@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public bool canControl = true;
     private Vector2 moveInput;
-    public bool sprintInput;
-
+    private bool sprintInput;
+    public bool fireInput;
 
     private void Start()
     {
@@ -38,6 +38,20 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    public void Fire(InputAction.CallbackContext context)
+    {
+        if(canControl)
+        {
+            if (context.started)
+            {
+                fireInput = true;
+            }
+            else if (context.canceled)
+            {
+                fireInput = false;
+            }
+        }
+    }
     private void FixedUpdate()
     {
         if (sprintInput)
@@ -50,6 +64,6 @@ public class PlayerMovement : MonoBehaviour
             //not sprinting
             rb.velocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
         }
-        
+
     }
 }
