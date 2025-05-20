@@ -2,31 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Windows.Speech;
 public class PlayerMovement : MonoBehaviour
 {
-    public InputAction playerControls;
     public float moveSpeed = 5f;
+    public float sprintMultiplier = 2f;
     public Rigidbody rb;
-    Vector2 moveDirection = Vector2.zero;
+    public bool canControl = true;
+    private Vector2 moveInput;
+    public bool sprintInput;
+
+
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
     }
-    void OnEnable()
+
+    public void Move(InputAction.CallbackContext context)
     {
-        playerControls.Enable();
+        if(canControl)
+        {
+            moveInput = context.ReadValue<Vector2>();
+        }
     }
-    void OnDisable()
+    public void Sprint(InputAction.CallbackContext context)
     {
-        playerControls.Disable();
+        if(canControl)
+        {
+            if (context.started)
+            {
+                sprintInput = true;
+            }
+            else if (context.canceled)
+            {
+                sprintInput = false;
+            }
+        }
     }
-    void Update()
+    private void FixedUpdate()
     {
-        moveDirection = playerControls.ReadValue<Vector2>();
-    }
-    void FixedUpdate()
-    {
-        rb.velocity = new Vector3(moveDirection.x * moveSpeed, 0, moveDirection.y * moveSpeed);
+        if (sprintInput)
+        {
+            //sprinting
+            rb.velocity = new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier));
+        }
+        else
+        {
+            //not sprinting
+            rb.velocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
+        }
+        
     }
 }
