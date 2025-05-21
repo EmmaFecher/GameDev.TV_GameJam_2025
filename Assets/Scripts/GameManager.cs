@@ -30,4 +30,25 @@ public class GameManager : MonoBehaviour
         maxMouseInventory = 5;
         currentMouseInventory = 0;
     }
+    public void UpdateShopInventory(int amount)
+    {
+        shopInventory += amount;
+        GameObject.FindGameObjectWithTag("Finish").GetComponent<GameManageHelper>().thing.text = shopInventory.ToString();
+        GameObject.Find("/CustomerSpawn").GetComponent<CustomerSpawner>().SpawnCustomer();
+    }
+    public void AddToInventory()
+    {
+        currentMouseInventory++;
+        GameObject.Find("/GameCanvas").GetComponent<GameUI>().UpdateBackpack();
+    }
+    public void ResetInventory()
+    {
+        currentMouseInventory = 0;
+        GameObject.Find("/GameCanvas").GetComponent<GameUI>().UpdateBackpack();
+    }
+    public void IncreaseMaxCap(int amount)
+    {
+        maxMouseInventory += amount;
+        GameObject.Find("/GameCanvas").GetComponent<GameUI>().UpdateBackpack();
+    }
 }

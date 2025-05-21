@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ public class GameUI : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject optionsMenu;
     public GameObject blackFade;
+    public TextMeshProUGUI current;
+    public TextMeshProUGUI max;
     //bools
     public bool dead = false;
     public bool gameOver = false;
@@ -20,6 +23,7 @@ public class GameUI : MonoBehaviour
         optionsMenu.SetActive(false);
         blackFade.SetActive(true);
         optionsMenu.GetComponent<Options>().Load();
+        UpdateBackpack();
     }
     public void PauseMenu()
     {
@@ -81,5 +85,11 @@ public class GameUI : MonoBehaviour
         GameOverMenu.SetActive(false);
         pauseMenu.SetActive(true);
         optionsMenu.SetActive(false);
+    }
+
+    public void UpdateBackpack()
+    {
+        current.text = GameManager.instance.currentMouseInventory.ToString();
+        max.text = GameManager.instance.maxMouseInventory.ToString();
     }
 }

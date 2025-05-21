@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MouseShopTable : MonoBehaviour
 {
+    public TextMeshProUGUI amount;
+    void Start()
+    {
+        amount.text = GameManager.instance.shopInventory.ToString();
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -16,10 +22,16 @@ public class MouseShopTable : MonoBehaviour
                 {
                     Debug.Log("Put backpack in store");
                     GameManager.instance.shopInventory += GameManager.instance.currentMouseInventory;
-                    GameManager.instance.currentMouseInventory = 0;
+                    GameManager.instance.ResetInventory();
+                    amount.text = GameManager.instance.shopInventory.ToString();
                     pm.fireInput = false;
                 }
             }
         }
+    }
+    public void SellItem()
+    {
+        GameManager.instance.UpdateShopInventory(1);
+        amount.text = GameManager.instance.shopInventory.ToString();
     }
 }

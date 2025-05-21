@@ -69,11 +69,13 @@ public class PlayerMovement : MonoBehaviour
         {
             //sprinting
             rb.velocity = new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier));
+            transform.rotation = Quaternion.LookRotation (new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier))).normalized;
         }
         else
         {
             //not sprinting
             rb.velocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
+            transform.rotation = Quaternion.LookRotation (new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier))).normalized;
         }
 
     }
