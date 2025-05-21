@@ -14,14 +14,20 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         if (instance != null)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
-    
+    public void Reset()
+    {
+        score = 0;
+        shopInventory = 0;
+        maxMouseInventory = 5;
+        currentMouseInventory = 0;
+    }
 }

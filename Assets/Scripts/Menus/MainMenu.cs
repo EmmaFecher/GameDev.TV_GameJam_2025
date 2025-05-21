@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     {
         optionsPanel.SetActive(false);
         creditsPanel.SetActive(false);
+        optionsPanel.GetComponent<Options>().Load();
     }
     public void GoToLevel()
     {
