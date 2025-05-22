@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int shopInventory = 0;//add to this when click on base shop
     public int maxMouseInventory = 5;
     public int currentMouseInventory = 0;
+    public int upgradeCost = 1;
     public static GameManager instance;
     void Awake()
     {
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void IncreaseMaxCap(int amount)
     {
         maxMouseInventory += amount;
+        upgradeCost += 2;
         GameObject.Find("/GameCanvas").GetComponent<GameUI>().UpdateBackpack();
     }
 }

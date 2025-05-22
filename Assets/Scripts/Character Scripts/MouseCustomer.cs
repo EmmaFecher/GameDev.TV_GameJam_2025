@@ -98,6 +98,9 @@ public class MouseCustomer : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         currentState = state.bought;
+        GameManager.instance.UpdateShopInventory(-1);
+        GameManager.instance.score++;
+        GameObject.Find("/GameCanvas").GetComponent<GameUI>().UpdateBackpack();
     }
     IEnumerator Bought()
     {
@@ -105,8 +108,6 @@ public class MouseCustomer : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         //set path
-        GameManager.instance.UpdateShopInventory(-1);
-        GameManager.instance.score++;
         currentState = state.leave;
     }
 }

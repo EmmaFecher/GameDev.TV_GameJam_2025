@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     public GameObject blackFade;
     public TextMeshProUGUI current;
     public TextMeshProUGUI max;
+    public TextMeshProUGUI score;
     //bools
     public bool dead = false;
     public bool gameOver = false;
@@ -91,5 +92,6 @@ public class GameUI : MonoBehaviour
     {
         current.text = GameManager.instance.currentMouseInventory.ToString();
         max.text = GameManager.instance.maxMouseInventory.ToString();
+        score.text = GameManager.instance.score.ToString();
     }
 }
