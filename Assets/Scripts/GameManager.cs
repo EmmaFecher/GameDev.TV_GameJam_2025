@@ -35,10 +35,6 @@ public class GameManager : MonoBehaviour
     {
         shopInventory += amount;
         GameObject.FindGameObjectWithTag("Finish").GetComponent<GameManageHelper>().thing.text = shopInventory.ToString();
-<<<<<<< HEAD
-=======
-        GameObject.Find("/CustomerSpawn").GetComponent<CustomerSpawner>().SpawnCustomer();
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
     }
     public void AddToInventory()
     {

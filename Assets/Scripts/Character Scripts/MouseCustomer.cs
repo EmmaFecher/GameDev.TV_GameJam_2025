@@ -21,10 +21,7 @@ public class MouseCustomer : MonoBehaviour
     bool firstBuy = true;
     bool firstBought = true;
     public state currentState;
-<<<<<<< HEAD
     public Animator anim;
-=======
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
     void Start()
     {
         NMA = GetComponent<NavMeshAgent>();
@@ -42,12 +39,9 @@ public class MouseCustomer : MonoBehaviour
         {
             case state.walking:
                 //walking anim
-<<<<<<< HEAD
                 anim.SetBool("Walk", true);
                 anim.SetBool("Buying", false);
                 anim.SetBool("Bought", false);
-=======
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
                 if (Vector3.Distance(transform.position, ways[currentWay].position) < 1f)
                 {
                     if (currentWay >= ways.Count - 1)
@@ -67,12 +61,9 @@ public class MouseCustomer : MonoBehaviour
                 break;
             case state.idle:
                 //idle anim
-<<<<<<< HEAD
                 anim.SetBool("Walk", false);
                 anim.SetBool("Buying", false);
                 anim.SetBool("Bought", false);
-=======
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
                 NMA.ResetPath();
                 if (GameManager.instance.shopInventory > 0)
                 {
@@ -81,12 +72,9 @@ public class MouseCustomer : MonoBehaviour
                 break;
             case state.buying:
                 //buying anim, and possibly courutine
-<<<<<<< HEAD
                 anim.SetBool("Walk", false);
                 anim.SetBool("Buying", true);
                 anim.SetBool("Bought", false);
-=======
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
                 if (firstBuy)
                 {
                     StartCoroutine(Buy());
@@ -95,35 +83,16 @@ public class MouseCustomer : MonoBehaviour
                 break;
             case state.bought:
                 //bought anim
-<<<<<<< HEAD
                 anim.SetBool("Walk", false);
                 anim.SetBool("Buying", false);
                 anim.SetBool("Bought", true);
-=======
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
                 if (firstBought)
                 {
                     StartCoroutine(Bought());
                     firstBought = false;
                 }
-<<<<<<< HEAD
                     break;
             default:
-=======
-
-                if (NMA.destination != null)
-                {
-                    //moving
-                    //at end of list, destry
-                }
-                    break;
-            default:
-                NMA.SetDestination(ways[0].position);
-                if (Vector3.Distance(transform.position, ways[0].position) < 1f)
-                {
-                    Destroy(this.gameObject);
-                }
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
                 break;
         }
     }
@@ -142,14 +111,11 @@ public class MouseCustomer : MonoBehaviour
 
         //set path
         currentState = state.leave;
-<<<<<<< HEAD
         GameObject.Find("/CustomerSpawn").GetComponent<CustomerSpawner>().SpawnCustomer();
         anim.SetBool("Walk", true);
         anim.SetBool("Buying", false);
         anim.SetBool("Bought", false);
         NMA.SetDestination(ways[0].position);
         Destroy(this.gameObject, 1.5f);
-=======
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
     }
 }

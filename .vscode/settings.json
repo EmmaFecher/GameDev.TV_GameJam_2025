@@ -51,9 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-<<<<<<< HEAD
+    "GameJam_2025.sln=======dotnet.defaultSolution": "GameDev.TV_GameJam_2025.sln>>>>>>>df5eac1441ec466b43e0a87789bb35971412ce49",
     "dotnet.defaultSolution": "GameJam_2025.sln"
-=======
-    "dotnet.defaultSolution": "GameDev.TV_GameJam_2025.sln"
->>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
 }
