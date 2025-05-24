@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
+    float startingY;
     public GameUI ui;
     public float moveSpeed = 5f;
     public float sprintMultiplier = 2f;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        startingY = gameObject.transform.position.y;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -78,13 +80,15 @@ public class PlayerMovement : MonoBehaviour
         {
             //sprinting
             rb.velocity = new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier));
-            transform.rotation = Quaternion.LookRotation (new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier))).normalized;
+            transform.rotation = Quaternion.LookRotation(new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier))).normalized;
+            transform.position = new Vector3(transform.position.x, startingY, transform.position.z);
         }
         else
         {
             //not sprinting
             rb.velocity = new Vector3(moveInput.x * moveSpeed, 0, moveInput.y * moveSpeed);
-            transform.rotation = Quaternion.LookRotation (new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier))).normalized;
+            transform.rotation = Quaternion.LookRotation(new Vector3(moveInput.x * (moveSpeed * sprintMultiplier), 0, moveInput.y * (moveSpeed * sprintMultiplier))).normalized;
+            transform.position = new Vector3(transform.position.x, startingY, transform.position.z);
         }
 
     }

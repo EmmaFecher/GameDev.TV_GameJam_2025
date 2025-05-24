@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 2873125440073210710}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30063936, y: -0.00000005848124, z: 0.000000018434587, w: 0.9537379}
-  m_LocalPosition: {x: 0.0000019073486, y: 5.734624, z: -8.19232}
+  m_LocalPosition: {x: 0, y: 5.269858, z: -3.5500016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -258,6 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5118373035047095342}
   - component: {fileID: 8758568975806036872}
+  - component: {fileID: 8183430149282746729}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -274,7 +275,7 @@ Transform:
   m_GameObject: {fileID: 8153663320249039535}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3006394, y: -0.000000055122648, z: 0.000000007779896, w: 0.9537379}
-  m_LocalPosition: {x: 20.000002, y: -7.200099, z: -6.79232}
+  m_LocalPosition: {x: 20.000002, y: -7.2653766, z: -6.792319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -320,6 +321,36 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 7870361279879312758}
+--- !u!114 &8183430149282746729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8153663320249039535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: Block
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.1
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1001 &2031976615350912173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7d884ab128f4a84eb523bb7966435b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.934723
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7d884ab128f4a84eb523bb7966435b0, type: 3}
       propertyPath: m_LocalPosition.z
