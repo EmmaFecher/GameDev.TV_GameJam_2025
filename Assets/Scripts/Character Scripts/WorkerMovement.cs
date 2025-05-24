@@ -16,7 +16,10 @@ public class WorkerMovement : MonoBehaviour
     {
         NMA = GetComponent<NavMeshAgent>();
         NMA.SetDestination(waypoints[currentWay].position);
+<<<<<<< HEAD
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+=======
+>>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
     }
 
     void Update()
@@ -29,7 +32,10 @@ public class WorkerMovement : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, waypoints[currentWay].position) < 1f)
             {
+<<<<<<< HEAD
                 Debug.Log("Close enough");
+=======
+>>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
                 currentWay++;
                 if (currentWay > waypoints.Length - 1)
                 {

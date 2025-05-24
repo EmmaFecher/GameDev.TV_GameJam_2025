@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+<<<<<<< HEAD
+=======
+    public string levelName = "BaseScene";
+>>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
     public GameObject creditsPanel;
     public GameObject optionsPanel;
     void Awake()
@@ -13,7 +17,11 @@ public class MainMenu : MonoBehaviour
         creditsPanel.SetActive(false);
         optionsPanel.GetComponent<Options>().Load();
     }
+<<<<<<< HEAD
     public void GoToLevel(string levelName)
+=======
+    public void GoToLevel()
+>>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
     {
         SceneManager.LoadScene(levelName);
     }

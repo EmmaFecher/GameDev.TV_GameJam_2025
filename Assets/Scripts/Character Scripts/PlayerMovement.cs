@@ -12,15 +12,23 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private bool sprintInput;
     public bool fireInput;
+<<<<<<< HEAD
     Animator anim;
     private void Start()
     {
         rb = this.GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+=======
+
+    private void Start()
+    {
+        rb = this.GetComponent<Rigidbody>();
+>>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
     }
 
     public void Move(InputAction.CallbackContext context)
     {
+<<<<<<< HEAD
         if (canControl)
         {
             moveInput = context.ReadValue<Vector2>();
@@ -32,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("Moving", true);
             }
+=======
+        if(canControl)
+        {
+            moveInput = context.ReadValue<Vector2>();
+>>>>>>> df5eac1441ec466b43e0a87789bb35971412ce49
         }
     }
     public void Sprint(InputAction.CallbackContext context)
