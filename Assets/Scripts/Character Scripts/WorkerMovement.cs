@@ -29,7 +29,6 @@ public class WorkerMovement : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, waypoints[currentWay].position) < 1f)
             {
-                Debug.Log("Close enough");
                 currentWay++;
                 if (currentWay > waypoints.Length - 1)
                 {

@@ -10,6 +10,8 @@ public class GameUI : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject optionsMenu;
     public GameObject blackFade;
+    public GameObject tutorialPanel;
+    public bool tutorialScene = false;
     public TextMeshProUGUI current;
     public TextMeshProUGUI max;
     public TextMeshProUGUI score;
@@ -32,6 +34,16 @@ public class GameUI : MonoBehaviour
         {
             if (paused)
             {
+                //unpausing
+                if (tutorialScene)
+                {
+                    if (GameManager.instance.firstTime)
+                    {
+                        //turn back on tutorial panel
+                        tutorialPanel.SetActive(true);
+                    }
+                }
+                
                 pauseMenu.SetActive(false);
                 optionsMenu.SetActive(false);
                 Time.timeScale = 1;
@@ -40,11 +52,17 @@ public class GameUI : MonoBehaviour
             }
             else
             {
+                //pausing
                 pauseMenu.SetActive(true);
+                if (tutorialScene)
+                {
+                    tutorialPanel.SetActive(false);
+                }
                 optionsMenu.SetActive(false);
                 Time.timeScale = 0;
                 Cursor.visible = true;
                 paused = true;
+
             }
         }
     }
@@ -55,6 +73,8 @@ public class GameUI : MonoBehaviour
         GameOverMenu.SetActive(true);
         optionsMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        if (tutorialScene)
+            tutorialPanel.SetActive(false);
         Cursor.visible = true;
     }
     public void ReturnFromLoose(string nextLevel)
@@ -70,6 +90,14 @@ public class GameUI : MonoBehaviour
     }
     public void Resume()
     {
+        if (tutorialScene)
+        {
+            if (GameManager.instance.firstTime)
+            {
+                //turn back on tutorial panel
+                tutorialPanel.SetActive(true);
+            }
+        }
         Time.timeScale = 1;
         GameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);

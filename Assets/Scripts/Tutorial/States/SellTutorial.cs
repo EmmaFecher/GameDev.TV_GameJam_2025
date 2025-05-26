@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SellTutorial : AbstractManager
 {
-    string s = "Move to the shop stand (right) and use select to fill the shop";
+    string s = "Move to the purple spot behind the shop stand (right) and use select to fill the shop";
     public override void EnterState(GameStateManager obj)
     {
         obj.tutorialText.text = s;

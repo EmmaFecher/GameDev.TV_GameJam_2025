@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(canControl)
         {
-            if (context.canceled)
+            if (context.performed)
             {
                 ui.PauseMenu();
             }
