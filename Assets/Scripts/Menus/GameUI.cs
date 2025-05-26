@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI current;
     public TextMeshProUGUI max;
     public TextMeshProUGUI score;
+    public TextMeshProUGUI finalText;
     //bools
     public bool dead = false;
     public bool gameOver = false;
@@ -43,7 +45,7 @@ public class GameUI : MonoBehaviour
                         tutorialPanel.SetActive(true);
                     }
                 }
-                
+
                 pauseMenu.SetActive(false);
                 optionsMenu.SetActive(false);
                 Time.timeScale = 1;
@@ -68,8 +70,12 @@ public class GameUI : MonoBehaviour
     }
     public void GameOver()
     {
-        gameOver = true;
         Time.timeScale = 0;
+        var tempColor = blackFade.GetComponent<Image>().color;
+        tempColor.a = 1f;
+        blackFade.GetComponent<Image>().color = tempColor;
+        finalText.text = "You Scored: " + GameManager.instance.score;
+        gameOver = true;
         GameOverMenu.SetActive(true);
         optionsMenu.SetActive(false);
         pauseMenu.SetActive(false);
