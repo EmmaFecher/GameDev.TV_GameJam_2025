@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemGrab : MonoBehaviour
 {
+    public bool isTutorialObject = false;
+    public bool grabbed = false;
     //trigger, if player stands on spot and hits button
     //have anim for grabbing?
     //add to inventory, turn off collider (and glowing gold color??)
@@ -20,10 +22,11 @@ public class ItemGrab : MonoBehaviour
                 {
                     if (GameManager.instance.currentMouseInventory < GameManager.instance.maxMouseInventory)
                     {
-                        // Debug.Log("Add");
                         GameManager.instance.AddToInventory();
                         pm.fireInput = false;
-                        this.gameObject.SetActive(false);
+                        grabbed = true;
+                        if (isTutorialObject == false)
+                            this.gameObject.SetActive(false);
                     }
                 }
             }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int maxMouseInventory = 5;
     public int currentMouseInventory = 0;
     public int upgradeCost = 1;
+    public bool firstTime = true; // for the tutorial
     public static GameManager instance;
     void Awake()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
         shopInventory = 0;
         maxMouseInventory = 5;
         currentMouseInventory = 0;
+        firstTime = true;
     }
     public void UpdateShopInventory(int amount)
     {
@@ -51,5 +53,9 @@ public class GameManager : MonoBehaviour
         maxMouseInventory += amount;
         upgradeCost += 2;
         GameObject.Find("/GameCanvas").GetComponent<GameUI>().UpdateBackpack();
+    }
+    public void SwitchTutorialOnOff()
+    {
+        firstTime = !firstTime;
     }
 }
